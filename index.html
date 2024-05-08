@@ -100,11 +100,11 @@
       daysUntilFriday += 7;
     }
 
-    return daysUntilFriday;
+    return daysUntilFriday === 0 ? 'It\'s Game Night!' : `${daysUntilFriday} days left`;
   }
   const contentEl = document.getElementById('content');
   const summEl = document.getElementById('summoners');
-  contentEl.innerHTML = `<span id="days-left">${daysUntilFriday()}</span> days left to     <img src="assets/logo.jpg" width="100" />`;
+  contentEl.innerHTML = `<span id="days-left">${daysUntilFriday()}</span> <img src="assets/logo.jpg" width="100" />`;
 
   const summoners = ['Silent47Assassin', 'Moein', 'Keeezeee', 'Alirezasng', 'bokonejam', '3lr0nd', 'combolombo'];
 
