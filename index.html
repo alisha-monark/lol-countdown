@@ -1,66 +1,119 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      @keyframes colorchange {
-        from {color: darkred;}
-        to {color: darkgoldenrod;}
-      }
-      span {
-        color: darkblue;
-        text-shadow: 2px 2px 10px #888888;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      }
-      span#days-left {
+
+<head>
+  <style>
+    @keyframes colorchange {
+      from {
         color: darkred;
-        font-size: 70px;
-        animation-name: colorchange;
-        animation-duration: 2s;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
       }
-      body {
-        background-color: lightblue;
+
+      to {
+        color: darkgoldenrod;
       }
-      #body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-      }
-      #content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        font-size: xx-large;
-        width: 450px;                
-        border-radius: 5px;
-        border: 1px solid lightgray;
-        background-color: white;
-        box-shadow: 5px 10px 20px #888888;
-      }
-    </style>
-  </head>
-  <body>   
-    <section id="body">      
-      <div id="content"></div>
-    </section>
-  </body>
-  <script>
-    function daysUntilFriday() {
+    }
+
+    span {
+      color: darkblue;
+      text-shadow: 2px 2px 10px #888888;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    span#days-left {
+      color: darkred;
+      font-size: 70px;
+      animation-name: colorchange;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+    }
+    #summoners {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 500px;
+    }
+    .summoner-box {
+      background-color: darkcyan;
+      border-radius: 5px;
+      border: 1px solid lightgray;
+      padding: 10px;
+      margin: 10px;
+      box-shadow: 5px 10px 20px #888888;
+      color: whitesmoke;
+    }
+    .summoner-box > a {
+      color: whitesmoke;
+      text-decoration: none;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .summoner-box:hover,
+    .summoner-box:hover > a
+     {
+      color: darkcyan;
+      background-color: whitesmoke;
+    }
+    body {
+      background-color: lightblue;
+    }
+
+    #body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    #content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      font-size: xx-large;
+      width: 450px;
+      border-radius: 5px;
+      border: 1px solid lightgray;
+      background-color: white;
+      box-shadow: 5px 10px 20px #888888;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <section id="body">
+    <div id="content"></div>
+    <hr />
+    <div id="summoners">
+    </div>
+  </section>
+</body>
+<script>
+  function daysUntilFriday() {
     var today = new Date().getDay();
     var daysUntilFriday = 5 - today;
 
     if (daysUntilFriday <= 0) {
-        daysUntilFriday += 7;
+      daysUntilFriday += 7;
     }
 
     return daysUntilFriday;
-}
-  var el = document.getElementById('content')
-  el.innerHTML = `
-    <span id="days-left">${daysUntilFriday()}</span> days left to <span>FF15</span>
-  `;
-  </script>
+  }
+  const contentEl = document.getElementById('content');
+  const summEl = document.getElementById('summoners');
+  contentEl.innerHTML = `<span id="days-left">${daysUntilFriday()}</span> days left to <span>FF15</span>`;
+
+  const summoners = [ 'Silent47Assassin', 'Moein', 'Keeezeee', 'Alirezasng', 'bokonejam', '3lr0nd', 'combolombo' ];
+
+  for(x of summoners) {
+    const div = document.createElement('div');
+    div.className = 'summoner-box';
+    const url = `https://mobalytics.gg/lol/profile/na/${x}-na1/overview`;
+    div.innerHTML = `<a href="${url}" target="_blank">${x}</a>`;
+    summEl.appendChild(div);
+  }
+</script>
+
 </html>
