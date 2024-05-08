@@ -3,7 +3,7 @@
 
 <head>
   <link rel="manifest" href="/assets/manifest.json" />
-  <link rel="icon" type="image/jpg" href="/assets/logo.jpg"/>
+  <link rel="icon" type="image/jpg" href="/assets/logo.jpg" />
   <style>
     @keyframes colorchange {
       from {
@@ -22,18 +22,19 @@
 
     span#days-left {
       color: darkred;
-      font-size: 70px;
+      font-size: 150px;
       animation-name: colorchange;
       animation-duration: 2s;
       animation-iteration-count: infinite;
       animation-direction: alternate;
     }
+
     #summoners {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      max-width: 500px;
     }
+
     .summoner-box {
       background-color: darkcyan;
       border-radius: 5px;
@@ -43,52 +44,51 @@
       box-shadow: 5px 10px 20px #888888;
       color: whitesmoke;
     }
-    .summoner-box > a {
+
+    .summoner-box>a {
       color: whitesmoke;
       text-decoration: none;
       font-family: Georgia, 'Times New Roman', Times, serif;
     }
+
     .summoner-box:hover,
-    .summoner-box:hover > a
-     {
+    .summoner-box:hover>a {
       color: darkcyan;
       background-color: whitesmoke;
     }
+
     body {
+      font-size: 50px;
       background-color: lightblue;
     }
 
     #body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      padding: 5%;
+      width: 70%;
+      margin: 0 auto;
       height: 100vh;
     }
 
     #content {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
       align-items: center;
       padding: 20px;
       font-size: xx-large;
-      width: 450px;
       border-radius: 5px;
       border: 1px solid lightgray;
       background-color: white;
       box-shadow: 5px 10px 20px #888888;
     }
-
-
   </style>
 </head>
 
 <body>
-  <section id="body">
-    <div id="content"></div>
-    <hr />
-    <div id="summoners">
-    </div>
+  <section id="body">    
+      <div id="content"></div>
+      <hr />
+      <div id="summoners">
+      </div>    
   </section>
 </body>
 <script>
@@ -106,9 +106,9 @@
   const summEl = document.getElementById('summoners');
   contentEl.innerHTML = `<span id="days-left">${daysUntilFriday()}</span> days left to     <img src="/assets/logo.jpg" width="100" />`;
 
-  const summoners = [ 'Silent47Assassin', 'Moein', 'Keeezeee', 'Alirezasng', 'bokonejam', '3lr0nd', 'combolombo' ];
+  const summoners = ['Silent47Assassin', 'Moein', 'Keeezeee', 'Alirezasng', 'bokonejam', '3lr0nd', 'combolombo'];
 
-  for(x of summoners) {
+  for (x of summoners) {
     const div = document.createElement('div');
     div.className = 'summoner-box';
     const url = `https://mobalytics.gg/lol/profile/na/${x}-na1/overview`;
