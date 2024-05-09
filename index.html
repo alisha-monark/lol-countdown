@@ -36,10 +36,10 @@
     }
 
     .summoner-box {
-      background-color: darkcyan;
+      background-color: dimgray;
       border-radius: 5px;
       border: 1px solid lightgray;
-      padding: 10px;
+      padding: 20px;
       margin: 10px;
       box-shadow: 5px 10px 20px #888888;
       color: whitesmoke;
@@ -67,6 +67,7 @@
     }
 
     #body {
+      text-align: center;
       padding: 5%;
       width: 70%;
       margin: 0 auto;
@@ -77,11 +78,11 @@
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      padding: 20px;
+      padding: 40px;
       font-size: xx-large;
       border-radius: 5px;
       border: 1px solid lightgray;
-      background-color: white;
+      background-color: black;
       box-shadow: 5px 10px 20px #888888;
     }
   </style>
@@ -91,6 +92,7 @@
   <section id="body">    
       <div id="content"></div>
       <hr />
+      <img src="assets/logo.jpg" width="100" />
       <div id="summoners">
       </div>    
   </section>
@@ -108,7 +110,7 @@
   }
   const contentEl = document.getElementById('content');
   const summEl = document.getElementById('summoners');
-  contentEl.innerHTML = `<span id="days-left">${daysUntilFriday()}</span> <img src="assets/logo.jpg" width="100" />`;
+  contentEl.innerHTML = `<span id="days-left">${daysUntilFriday()}</span> `;
 
   const summoners = ['Silent47Assassin', 'Moein', 'Keeezeee', 'Alirezasng', 'bokonejam', '3lr0nd', 'combolombo'];
 
