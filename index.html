@@ -109,6 +109,7 @@
       daysUntilFriday += 7;
     }
 
+    if(daysUntilFriday === 1) return `${daysUntilFriday} day left`;
     return daysUntilFriday === 0 ? 'It\'s Game Night!' : `${daysUntilFriday} days left`;
   }
   const contentEl = document.getElementById('content');
