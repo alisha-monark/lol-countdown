@@ -105,7 +105,7 @@
     var today = new Date().getDay();
     var daysUntilFriday = 5 - today;
 
-    if (daysUntilFriday <= 0) {
+    if (daysUntilFriday < 0) {
       daysUntilFriday += 7;
     }
 
